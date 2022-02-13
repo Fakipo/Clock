@@ -70,6 +70,7 @@ function stopWatch(){
 		return;
 	}
 	started = true;
+	isReset = false;
 	let milliseconds = 0;
 	let seconds = 0;
 	let minutes = 0;
