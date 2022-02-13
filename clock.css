@@ -1,0 +1,517 @@
+body{
+	background-color: aquamarine;
+}
+
+body {min-width:300px;
+max-width: 1400;
+}
+ body {margin: 0; height: 100%;}
+ 
+ html, body{
+    height: 100%;
+}
+
+#button1, #button2 {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 20px 36px;
+  text-align: center;
+  display: inline-block;
+  font-size: 2vmin;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#Analog, #bootcontainer, #TimerContainer, #AlarmContainer	{
+	display: none;
+}
+
+.clock {
+  position: relative;
+  background: #333333;
+  max-width: 600px;
+  min-width: 550px;
+  min-height:  350px; 
+  padding: 10px;
+  border-radius: 20px;
+  border: 20px solid #990000;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+}
+.clock .outline {
+	position: absolute;
+	width: 45%;
+	height:50%;
+	padding : 9px;
+	padding-top: 40px;
+	left: 165px;
+	margin-top: 66px;
+	border: 10px solid gray;
+	text-align: center;
+}
+
+.clock .outline .Time {
+	Font-size: 290%;
+	color:white;
+}
+
+/*	This is where analog clock starts from */
+
+.clockAnalog {
+	position: relative;
+	height: 350px;
+	width: 350px;
+	border : 10px solid #282252;
+	border-radius : 50%;
+	background-color: pink;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.clockAnalog, .clock{
+	margin-top : 100px;
+}
+
+
+.clockAnalog .number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 1.5rem;
+}
+
+#number1 { --rotation: 30deg; }
+#number2 { --rotation: 60deg; }
+#number3 { --rotation: 90deg; }
+#number4 { --rotation: 120deg; }
+#number5 { --rotation: 150deg; }
+#number6 { --rotation: 180deg; }
+#number7 { --rotation: 210deg; }
+#number8 { --rotation: 240deg; }
+#number9 { --rotation: 270deg; }
+#number10 { --rotation: 300deg; }
+#number11 { --rotation: 330deg; }
+
+#hour,
+#minute,
+#second {
+    position: absolute;
+    background: black;
+    border-radius: 10px;
+    transform-origin: bottom;
+}
+  
+#hour {
+    width: 2%;
+    height: 25%;
+    top: 25%;
+    left: 49.85%;
+}
+  
+#minute {
+    width: 1.8%;
+    height: 30%;
+    top: 19%;
+    left: 49.85%;
+}
+  
+#second {
+    width: 1.3%;
+    height: 40%;
+    top: 9%;
+    left: 49.85%;
+}
+.clockAnalog .pivot{
+	position:absolute;
+	border-radius: 50%;
+	background: black;
+	width: 5%;
+	height: 5%;
+	text-align: center;
+	left: 47.35%;
+	TOP:47%;
+}
+
+/* This is where stopwatch starts from	*/
+#alarmButtonId, #timerButton , #stopWatchButtonID, #start, #stop, #reset {
+	position: relative;
+	padding: 13px;
+	font-size: 3vmin;
+}
+
+#try{
+	margin-top: 100px;
+}
+
+#panel1{
+	width: 40%;
+	margin-left: 30%;
+	margin-top: 20px;
+	height: 10vmin;
+	
+}
+.stopWatchTime, .timerTime{
+	font-size: 4vmin;
+}
+
+#bootcontainer{
+	position:relative;
+	margin-bottom: 0;
+	margin-top: 45px;
+}
+
+/* This is where timer starts from	*/
+
+.col-lg-4{
+	height: 390px;
+}
+
+#TimerContainer{
+	position: relative;
+	margin-top:3.50%;
+}
+
+
+#timercol1{
+	position: relative;
+	background: orange;
+}
+
+#timercol2{
+	position: relative;
+	background: pink;
+}
+
+#timercol3{
+	position: relative;
+	background: #93F630 ;
+}
+
+#panel2{
+	position:absolute;
+	width: 80%;
+	left: 10%;
+	margin-top: 5%;
+	height: 20%;
+	
+}
+ #stopTimer{
+	position: absolute;
+	top: 80%;
+	width: 25%;
+	font-size: 3vmin;
+}
+
+#startTimer, #save{
+	position: absolute;
+	top: 80%;
+	width: 25%;
+	font-size: 3vmin;
+}
+#save{
+	left: 30%;
+	}
+
+.timeInput{
+	position: absolute;
+	left: 40%;
+	height: 20px;
+	width: 25%;
+	font-size: 2.5vmin;
+} 
+
+.labelInputTime{
+	position : absolute;
+	height: 20px;
+	padding-right: 2%;
+	font-size: 3vmin;
+}
+
+#hoursTimer, #timerHoursLabel{
+	top: 5%;
+}
+
+#minutesTimer, #timerMinutesLabel{
+	top: 15%;
+}
+
+#secondsTimer, #timerSecondsLabel {
+	top: 25%;
+}
+
+.responsive-width {
+    font-size: 3vmin ;
+}
+
+#timercol3, #alarm2{
+	overflow: auto;
+
+}
+
+/* This is where alarm starts from*/
+ #alarm2{
+	background-color: rgb(161, 214, 250);
+	border: solid 20px orange;
+}
+#alarm1{
+	background-color: #333333;
+	border: solid 20px orange;
+}
+.col-lg-6{
+	margin-top: 100px;
+	position: relative;
+	height: 390px;
+}
+#alarmTimelabel, #alarmNamelabel1 {
+	color: wheat;
+	margin-top: 5%;
+}
+#buttonSaveAlarm{
+	font-size: 2.4vmin;
+}
+#alarmName{
+	width: 20%;
+}
+
+#alarmPanel{
+	position:absolute;
+	width: 20%;
+	left: 40%;
+	margin-top: 5%;
+	height: 20%;
+	padding-left: 2%;
+	padding-top: 3%;
+}
+
+#TImeTextAlarm{
+	position: absolute;
+	margin-left: 10%;
+	margin-top: 13%;
+	font-size: 4vmin;
+	color: #93F630;
+}
+#realTimeAlarm{
+	position: absolute;
+	font-size: 3vmin;
+	font : bold;
+	display: inline-block;
+}
+
+
+@media screen and (max-width: 700px){
+	body{
+		background-color: #283747;
+	}
+	
+	.col-lg-4{
+	height: 150px;
+	}
+	
+	.clock {
+		position: relative;
+		background: #333333;
+		min-width: 80%;
+		min-height:  40%; 
+		padding: 2%;
+		text-align: center; 	
+	}
+	.clock .outline{
+		position: absolute;
+		width: 60%;
+		height: 50%;
+		padding-top: 6%;
+		margin-top : 15%;
+		left:21.5%;
+		text-align: center;
+	}
+	
+	#button1, #button2 {
+		padding: 2% 4%;
+		text-align: center;
+		display: inline-block;
+		font-size: 20px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	
+	.clockAnalog, .clock{
+		margin-top : 20%;
+	}
+	
+	#Time{
+		left: 27%;
+	}
+	
+	#AMPM{
+		left: 55%;
+	}
+	
+	.clock .outline .Time {
+	position: absolute;
+	Font-size: 5vmin;
+	color:white;
+	}
+	
+	.clockAnalog {
+		position: relative;
+		height: 200px;
+		width: 200px;
+		border : 10px solid #282252;
+		border-radius : 50%;
+		background-color: pink;
+	}
+	
+	.col-lg-4{
+		height: 150px;
+	}
+	
+	#hoursTimer, #timerHoursLabel{
+	top: 5%;
+	}
+
+	#minutesTimer, #timerMinutesLabel{
+	top: 20%;
+	}
+
+	#secondsTimer, #timerSecondsLabel {
+	top: 35%;
+	}
+	
+	#stopTimer{
+	position: absolute;
+	top: 55%;
+	left: 40%;
+	width: 15%;
+	font-size: 3vmin;
+	}
+	
+	#startTimer, #save{
+	position: absolute;
+	right: 15%;
+	width: 15%;
+	font-size: 3vmin;
+	}
+	#save{
+		top: 50%;
+		left: 70%;
+	}
+	#startTimer{
+		top: 15%;
+	}
+	
+	.clock .outline .Time {
+	Font-size: 5vmin;
+	color:white;
+}
+}
+
+@media only screen and (min-width:700px) and (max-width:1199px){
+		.col-lg-4{
+		height: 200px;
+	}
+	
+	#startTimer, #save{
+	position: absolute;
+	top: 15%;
+	right: 15%;
+	width: 15%;
+	font-size: 3vmin;
+	}
+	#save{
+		top: 50%;
+		left: 70%;
+	}
+	
+	#stopTimer{
+	position: absolute;
+	top: 70%;
+	width: 25%;
+	font-size: 3vmin;
+	}
+	
+	#hoursTimer, #timerHoursLabel{
+	top: 5%;
+	}
+
+	#minutesTimer, #timerMinutesLabel{
+	top: 20%;
+	}
+
+	#secondsTimer, #timerSecondsLabel {
+	top: 35%;
+	}
+
+
+}
+
+
+
+
+
+
+@media only screen and (min-width:990px) and (max-width:1199px){
+
+	#alarmPanel{
+		position:absolute;
+		width: 20%;
+		left: 40%;
+		margin-top: 5%;
+		height: 20%;
+		padding-left: 3.5%;
+		padding-top: 2%;
+	}
+	#TImeTextAlarm{
+		position: absolute;
+		margin-left: 18%;
+		margin-top: 10%;
+		font-size: 4vmin;
+		color: yellow;
+	}
+	#realTimeAlarm{
+		position: absolute;
+		font-size: 4vmin;
+		display: inline-block;
+	}
+}	
+
+
+	@media only screen and (max-width:990px){
+		#alarmPanel{
+			margin-top: 5%;
+			height: 16%;
+			padding-left: 2%;
+			padding-top: 2%;
+		}
+		#realTimeAlarm{
+			font-size: 4vmin;
+		}
+		#TImeTextAlarm{
+			margin-left: 12%;
+			margin-top: 12%;
+			font-size: 4vmin;
+			color: blue;
+		}
+	}
+
+	@media only screen and (max-width:400px){
+		#alarmPanel{
+			margin-top: 10%;
+			height: 12%;
+			padding-left: 2%;
+			padding-top: 2%;
+		}
+		#realTimeAlarm{
+			font-size: 4vmin;
+		}
+		#TImeTextAlarm{
+			margin-left: 9%;
+			margin-top: 20%;
+			font-size: 4vmin;
+			color: blue;
+		}
+	}

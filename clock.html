@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel = "stylesheet" href = "clock.css">
+<title>	Clock </title>
+</head>
+<body>
+
+	<button id = "button1"> Analog </button>
+	<button id = "button2"> Digital </button>
+	
+	<div class = "clock" id = "Digital">
+		<div class = "outline" id = "idoutline">
+			<span class = "Time" id = "Time"> 08:15 </span>
+			<span class = "Time" id = "AMPM"> PM </span>
+		</div>
+	</div>
+	
+	<div class = "clockAnalog" id = "Analog"> 
+		<div class = "MinuteHand" id = "minute"> </div>
+		<div class = "SecondHand" id = "second"> </div>
+		<div class = "HourHand" id = "hour"> </div>
+		<div class = "pivot"></div>
+		<div class = "number" id = "number1"> 1 </div>
+		<div class = "number" id = "number2"> 2 </div>
+		<div class = "number" id = "number3"> 3 </div>
+		<div class = "number" id = "number4"> 4 </div>
+		<div class = "number" id = "number5"> 5 </div>
+		<div class = "number" id = "number6"> 6 </div>
+		<div class = "number" id = "number7"> 7 </div>
+		<div class = "number" id = "number8"> 8 </div>
+		<div class = "number" id = "number9"> 9 </div>
+		<div class = "number" id = "number10"> 10 </div>
+		<div class = "number" id = "number11"> 11 </div>
+		<div class = "number" id = "number12"> 12 </div>	
+	</div>
+	
+<!-- This is where Stop watch starts from -->	
+	<div class = "container" id = "bootcontainer">
+		<div class = "jumbotron" id = "jumbo1">
+			<div class = "well well-lg" id = "well1">
+				<div class = "panel text-center" id = "panel1">
+					<span class = "stopWatchTime" id = "stw">00:00:00:000<span>
+				</div>
+			</div>
+				<button class="btn btn-primary responsive-width" id = "start" onclick = "stopWatch()" >Start</button>
+				<button class="btn btn-success responsive-width" id = "stop"  onclick = "resetClock()" >Reset</button>
+				<button class="btn btn-danger responsive-width" id = "reset" onclick = "stopClock()" >Stop</button>
+		</div>	
+	</div>	
+<!-- This is where Timer watch starts from 	
+	<div class = "container" id = "TimerContainer">
+		<div class = "row">
+			<div class = "col-lg-4" id = "timercol1">
+				<label for="hours" class = "labelInputTime" id = "timerHoursLabel" >Hours</label>
+				<input type="number" class = "timeInput" name = "hours" placeholder = "0" min="0" max="23" value = "0" step="1" id = "hoursTimer">
+				<br>
+				<label for="minutes" class = "labelInputTime" id = "timerMinutesLabel">Minutes</label>
+				<input type="number" class = "timeInput" name = "minutes"  placeholder = "0" min="0" max="59" value = "0" step="1" id = "minutesTimer">
+				<br>
+				<label for="seconds" class = "labelInputTime" id = "timerSecondsLabel">Seconds</label>
+				<input type="number" class = "timeInput" name = "seconds"  placeholder = "0" min="0" max="59" value = "0" step="1" id = "secondsTimer">
+				<br>
+				<button class="btn btn-primary" id = "startTimer" onclick = "startTimer1()">Start</button>
+				<button class="btn btn-primary" id = "save" onclick = "addRow()">Save</button>
+			</div>
+			<div class = "col-lg-4" id = "timercol2">
+				<div class = "panel text-center" id = "panel2">
+					<span class = "timerTime" id = "stew" value = "00:00:00">00:00:00<span>
+				</div>
+				<div class="col-auto d-flex flex-column">
+					<button class="btn btn-danger btn-sm m-1" id = "stopTimer" onclick = "stopTimer()" >Stop</button>
+				</div>	
+			</div>
+			<div class = "col-lg-4" id = "timercol3">
+			</div>
+		</div>
+	</div>
+	
+
+	<div class = "container" id = "AlarmContainer">
+		<div class = "row">
+			<div class = "col-lg-6" id = "alarm1">
+				<label for="alarmTimePicker"  id = "alarmTimelabel" >Pick Time</label>
+				<input type="time" name = "alarmTimePicker" value="13:30" id = "alarmTimePicker" value="16:32:55" >	
+				<br>
+				<label for="alarmName"  id = "alarmNamelabel1" >Enter Name</label>
+				<input type="text" name = "alarmName" id = "alarmName" >	
+				<br>
+				<button class = "btn-primary" id = "buttonSaveAlarm" onclick = "alarmAddRow()">Save</button>
+				<span id = "TImeTextAlarm"> TIME </span>
+				<div class = "panel" id = "alarmPanel">
+					<span id = "realTimeAlarm"> 08:15 </span>
+				</div>
+			</div>
+			<div class = "col-lg-6" id = "alarm2"></div>
+		</div>
+	</div>			-->	
+	
+	
+<div class="btn-group btn-group-justified flex-wrap responsive-width" data-toggle="buttons" id = "try">
+  <a  class="btn btn-primary" id = "stopWatchButtonID">Stopwatch</a>
+<!--  <a  class="btn btn-success" id = "timerButton">Timer</a>
+  <a  class="btn btn-danger" id = "alarmButtonId">Alarm</a>-->
+</div>					
+<!-- <script src = "AnalogClock.js"> </script>	 -->
+<script src = "addDiv.js"> </script>	
+<script src = "Clock.js"> </script>	
+<script type="text/javascript">
+$("#button1").on('click', function() {
+   $("#Analog,#minute,#second, #hour, .pivot, .number").show();
+   $("#Digital, #bootcontainer ,#TimerContainer").hide();
+});
+$("#button2").on('click', function() {
+   $("#Digital, #idoutline, #Time, #AMPM").show();
+   $("#Analog, #bootcontainer , #TimerContainer, #AlarmContainer").hide();
+});
+$("#stopWatchButtonID").on('click', function() {
+   $("#panel1, #well1, #bootcontainer, #jumbo1").show();
+   $("#Digital, #Analog, #TimerContainer, #AlarmContainer").hide();
+});
+/*
+$("#timerButton").on('click', function() {
+   $("#TimerContainer").show();
+   $("#Digital, #Analog, #bootcontainer, #AlarmContainer").hide();
+});
+
+$("#alarmButtonId").on('click', function() {
+   $("#AlarmContainer").show();
+   $("#Digital, #Analog, #bootcontainer, #TimerContainer").hide();
+}); */
+	</script>
+</body>
+</html>
