@@ -29,8 +29,6 @@ class Clock {
 		this.element.querySelector("#Time").textContent = timeFormatted;
 		this.element.querySelector("#AMPM").textContent = amPm;
 
-		document.getElementById("realTimeAlarm").innerHTML = timeFormatted + amPm;
-
 	}
 
 	analogClock(d){
