@@ -8,6 +8,31 @@
 <link rel = "stylesheet" href = "clock.css">
 <title>	Clock </title>
 </head>
+	<script src = "Clock.js"> </script>	
+<script type="text/javascript">
+$("#button1").on('click', function() {
+   $("#Analog,#minute,#second, #hour, .pivot, .number").show();
+   $("#Digital, #bootcontainer ,#TimerContainer").hide();
+});
+$("#button2").on('click', function() {
+   $("#Digital, #idoutline, #Time, #AMPM").show();
+   $("#Analog, #bootcontainer , #TimerContainer, #AlarmContainer").hide();
+});
+$("#stopWatchButtonID").on('click', function() {
+   $("#panel1, #well1, #bootcontainer, #jumbo1").show();
+   $("#Digital, #Analog, #TimerContainer, #AlarmContainer").hide();
+});
+/*
+$("#timerButton").on('click', function() {
+   $("#TimerContainer").show();
+   $("#Digital, #Analog, #bootcontainer, #AlarmContainer").hide();
+});
+
+$("#alarmButtonId").on('click', function() {
+   $("#AlarmContainer").show();
+   $("#Digital, #Analog, #bootcontainer, #TimerContainer").hide();
+}); */
+	</script>
 <body>
 
 	<button id = "button1"> Analog </button>
@@ -109,30 +134,6 @@
 </div>					
 <!-- <script src = "AnalogClock.js"> </script>	 -->
 <!-- <script src = "addDiv.js"> </script>     -->	
-<script src = "Clock.js"> </script>	
-<script type="text/javascript">
-$("#button1").on('click', function() {
-   $("#Analog,#minute,#second, #hour, .pivot, .number").show();
-   $("#Digital, #bootcontainer ,#TimerContainer").hide();
-});
-$("#button2").on('click', function() {
-   $("#Digital, #idoutline, #Time, #AMPM").show();
-   $("#Analog, #bootcontainer , #TimerContainer, #AlarmContainer").hide();
-});
-$("#stopWatchButtonID").on('click', function() {
-   $("#panel1, #well1, #bootcontainer, #jumbo1").show();
-   $("#Digital, #Analog, #TimerContainer, #AlarmContainer").hide();
-});
-/*
-$("#timerButton").on('click', function() {
-   $("#TimerContainer").show();
-   $("#Digital, #Analog, #bootcontainer, #AlarmContainer").hide();
-});
 
-$("#alarmButtonId").on('click', function() {
-   $("#AlarmContainer").show();
-   $("#Digital, #Analog, #bootcontainer, #TimerContainer").hide();
-}); */
-	</script>
 </body>
 </html>
