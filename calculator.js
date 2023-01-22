@@ -27,7 +27,7 @@ function appendNum(num){
             document.getElementById('fnum').innerText = 0;
         }
             let temp = document.getElementById('fnum').innerText;
-        if(temp == 0){
+        if(temp == '0' && temp !='0.'){
             document.getElementById('fnum').innerText = num;
         }
         else if ((+temp + +num)>999999) {
