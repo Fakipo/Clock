@@ -1,5 +1,7 @@
 let globalBuffer1 = 0;
-
+let bufferSymbol;
+let newNum;
+let decimalPoint;
 function add(num1, num2){
     return num1+num2;
 }
@@ -19,8 +21,12 @@ let divide = function(num1, num2){
 }
 
 function appendNum(num){   
-        let temp = document.getElementById('fnum').innerText;
-        
+    
+    
+        if(newNum == true){
+            document.getElementById('fnum').innerText = 0;
+        }
+            let temp = document.getElementById('fnum').innerText;
         if(temp == 0){
             document.getElementById('fnum').innerText = num;
         }
@@ -31,13 +37,19 @@ function appendNum(num){
         else{
             document.getElementById('fnum').innerText = String(temp) + String(num);
         }
+        newNum = false;
 }
 
 function reset(){
     document.getElementById('fnum').innerText = 0;
+    bufferSymbol = null;
+    decimalPoint = false;
 }
 
 function backspace(){
+    if(newNum == true){
+        document.getElementById('fnum').innerText = 0;
+    }
     let temp = document.getElementById('fnum').innerText;
     if(temp != 0){
         if(temp > 9)
@@ -47,4 +59,68 @@ function backspace(){
         }
     }
     
+}
+
+function clickSymbol(symbol){
+    globalBuffer1 = document.getElementById('fnum').innerText;
+    bufferSymbol = symbol;
+    newNum = true;
+    decimalPoint = false;
+}
+
+function result(){
+
+    let currentNum = Number(document.getElementById('fnum').innerText);
+    
+    switch(bufferSymbol){
+        case '-': {
+            document.getElementById('fnum').innerText = (+globalBuffer1 - currentNum);
+            break;
+        }
+        case '+': {
+            document.getElementById('fnum').innerText = (+globalBuffer1 + currentNum);
+            break;
+        }
+        case 'x': {
+            document.getElementById('fnum').innerText = (+globalBuffer1 * currentNum);
+            break;
+        }
+        case '/': {
+            document.getElementById('fnum').innerText = (+globalBuffer1 / currentNum);
+            break;
+        }
+        case '%': {
+            document.getElementById('fnum').innerText = ((+globalBuffer1 * currentNum)/100);
+            break;
+        }
+        case null: {
+            return;
+        }
+    }
+    if(document.getElementById('fnum').innerText == 'NaN'
+    || document.getElementById('fnum').innerText == 'undefined'
+    || document.getElementById('fnum').innerText == 'Infinity'){
+        alert('invalid operation');
+        reset();
+    }
+    bufferSymbol = null;
+    newNum = true;
+    decimalPoint = false;
+}
+
+function square(){
+    document.getElementById('fnum').innerText = Math.pow(document.getElementById('fnum').innerText, 2); 
+    bufferSymbol = null;
+    newNum = true;
+    decimalPoint = false;
+}
+
+function addDecimal(){
+    if(decimalPoint != true)
+        document.getElementById('fnum').innerText = document.getElementById('fnum').innerText.concat('.');
+        decimalPoint = true;
+}
+
+function relocateToHome(){
+    location.replace('https://competent-johnson-49d788.netlify.app/');
 }
