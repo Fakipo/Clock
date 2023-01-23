@@ -25,6 +25,7 @@ function appendNum(num){
     
         if(newNum == true){
             document.getElementById('fnum').innerText = 0;
+            decimalPoint = false;
         }
             let temp = document.getElementById('fnum').innerText;
         if(temp == '0' && temp !='0.'){
@@ -51,11 +52,22 @@ function backspace(){
         document.getElementById('fnum').innerText = 0;
     }
     let temp = document.getElementById('fnum').innerText;
-    if(temp != 0){
-        if(temp > 9)
+    if(temp != 0 && temp != '0.'){
+        if(temp > 9 && decimalPoint == false)
         document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
+        else if(decimalPoint == true){
+            if(temp.charAt(temp.length) == '.'){
+                document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
+                decimalPoint = false;
+            }
+            else{
+                document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
+            }
+        }
+        
         else{
             document.getElementById('fnum').innerText = 0;
+            decimalPoint = false;
         }
     }
     
@@ -65,7 +77,6 @@ function clickSymbol(symbol){
     globalBuffer1 = document.getElementById('fnum').innerText;
     bufferSymbol = symbol;
     newNum = true;
-    decimalPoint = false;
 }
 
 function result(){
@@ -119,6 +130,7 @@ function addDecimal(){
     if(decimalPoint != true)
         document.getElementById('fnum').innerText = document.getElementById('fnum').innerText.concat('.');
         decimalPoint = true;
+        newNum = false;
 }
 
 function relocateToHome(){
