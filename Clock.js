@@ -181,3 +181,52 @@ function stopTimer(){
 	document.getElementById("stew").innerHTML = "00:00:00";
 }
 */
+
+// var x = () => {setInterval(()=> {
+// 	let rndInt1 = randomIntFromInterval(0, 255);
+// 	let rndInt2 = randomIntFromInterval(0, 255);
+// 	let rndInt3 = randomIntFromInterval(0, 255);
+// 	document.body.style.backgroundColor = `rgb(${rndInt1}, ${rndInt2}, ${rndInt3})`;
+// 	}, 200)};
+
+// var bit = null;
+// function goCrazy(){
+	
+
+
+// 	if (document.getElementById('button4').innerText == 'Go Crazy'){
+// 		document.getElementById('button4').innerText = 'stop';
+// 		bit = x();
+// 	}
+// 	else{
+// 		clearInterval(bit);
+// 		document.getElementById('button4').innerText = 'Go Crazy';
+// 	}
+// }
+
+var x;
+
+function goCrazy(){
+    if (document.getElementById('button4').innerText == 'Go Crazy') {
+        document.getElementById('button4').innerText = 'Stop';
+		document.getElementById('Digital').style.display = "none";
+        x = setInterval(() => {
+			{
+				const rndInt1 = randomIntFromInterval(0, 255);
+				const rndInt2 = randomIntFromInterval(0, 255);
+				const rndInt3 = randomIntFromInterval(0, 255);
+				document.body.style.backgroundColor = `rgb(${rndInt1}, ${rndInt2}, ${rndInt3})`;
+			}
+		}, 200);
+    }
+    else {
+        document.getElementById('button4').innerText = 'Go Crazy';
+        if (x) clearInterval(x);
+	//	document.getElementById('Digital').style.display = "block";
+    } 
+}
+
+function randomIntFromInterval(min, max) { // min and max included 
+	return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  

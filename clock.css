@@ -11,7 +11,7 @@ max-width: 1400;
     height: 100%;
 }
 
-#button1, #button2, #button3, #stopWatchButtonID {
+#button1, #button2, #button3, #stopWatchButtonID, #button4 {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -330,7 +330,7 @@ max-width: 1400;
 		text-align: center;
 	}
 	
-	#button1, #button2, #button3, #stopWatchButtonID {
+	#button1, #button2, #button3,#button4, #stopWatchButtonID {
 		padding: 2% 4%;
 		text-align: center;
 		display: inline-block;
