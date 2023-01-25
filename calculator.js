@@ -143,5 +143,5 @@ function addDecimal(){
 }
 
 function relocateToHome(){
-    location.replace('https://competent-johnson-49d788.netlify.app/');
+    location.replace('index.html');
 }
