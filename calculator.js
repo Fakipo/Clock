@@ -1,7 +1,6 @@
 let globalBuffer1 = 0;
 let bufferSymbol;
 let newNum;
-let decimalPoint;
 function add(num1, num2){
     return num1+num2;
 }
@@ -44,64 +43,71 @@ function appendNum(num){
 function reset(){
     document.getElementById('fnum').innerText = 0;
     bufferSymbol = null;
-    decimalPoint = false;
+    globalBuffer1 = 90;
 }
 
-function backspace(){
-    if(newNum == true){
-        document.getElementById('fnum').innerText = 0;
-    }
-    let temp = document.getElementById('fnum').innerText;
-    if(temp != 0 && temp != '0.'){
-        if(temp > 9 && decimalPoint == false)
-        document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
-        else if(decimalPoint == true){
-            if(temp.charAt(temp.length) == '.'){
-                document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
-                decimalPoint = false;
-            }
-            else{
-                document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
-            }
-        }
+// function backspace(){
+//     if(newNum == true){
+//         document.getElementById('fnum').innerText = 0;
+//     }
+//     let temp = document.getElementById('fnum').innerText;
+//     if(temp != 0 && temp != '0.'){
+//         if(temp > 9 && decimalPoint == false)
+//         document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
+//         else if(decimalPoint == true){
+//             if(temp.charAt(temp.length) == '.'){
+//                 document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
+//                 decimalPoint = false;
+//             }
+//             else{
+//                 document.getElementById('fnum').innerText = temp.substring(0,(temp.length-1));
+//             }
+//         }
         
-        else{
-            document.getElementById('fnum').innerText = 0;
-            decimalPoint = false;
-        }
-    }
+//         else{
+//             document.getElementById('fnum').innerText = 0;
+//             decimalPoint = false;
+//         }
+//     }
     
-}
+// }
 
 function clickSymbol(symbol){
-    globalBuffer1 = document.getElementById('fnum').innerText;
-    bufferSymbol = symbol;
-    newNum = true;
+    if(globalBuffer1 != 0 && bufferSymbol != null){
+        result();
+        bufferSymbol = symbol;
+    }
+    else{
+        globalBuffer1 = document.getElementById('fnum').innerText;
+        bufferSymbol = symbol;
+        newNum = true;
+    }
+
 }
 
 function result(){
 
     let currentNum = Number(document.getElementById('fnum').innerText);
-    
+    let temp = 0;
     switch(bufferSymbol){
         case '-': {
-            document.getElementById('fnum').innerText = (+globalBuffer1 - currentNum);
+            temp = (+globalBuffer1 - currentNum);
             break;
         }
         case '+': {
-            document.getElementById('fnum').innerText = (+globalBuffer1 + currentNum);
+            temp = (+globalBuffer1 + currentNum);
             break;
         }
         case 'x': {
-            document.getElementById('fnum').innerText = (+globalBuffer1 * currentNum);
+            temp = (+globalBuffer1 * currentNum);
             break;
         }
         case '/': {
-            document.getElementById('fnum').innerText = (+globalBuffer1 / currentNum);
+            temp = (+globalBuffer1 / currentNum);
             break;
         }
         case '%': {
-            document.getElementById('fnum').innerText = ((+globalBuffer1 * currentNum)/100);
+            temp = ((+globalBuffer1 * currentNum)/100);
             break;
         }
         case null: {
@@ -116,21 +122,24 @@ function result(){
     }
     bufferSymbol = null;
     newNum = true;
-    decimalPoint = false;
+    document.getElementById('fnum').innerText = temp;
+    globalBuffer1 = temp;
 }
 
 function square(){
-    document.getElementById('fnum').innerText = Math.pow(document.getElementById('fnum').innerText, 2); 
+    if(globalBuffer1 != 0 && bufferSymbol != null){
+        result();
+    }
+    let temp = Math.pow(document.getElementById('fnum').innerText, 2); 
+    document.getElementById('fnum').innerText = temp;
     bufferSymbol = null;
     newNum = true;
-    decimalPoint = false;
+    globalBuffer1 = temp;
 }
 
 function addDecimal(){
-    if(decimalPoint != true)
+    if(!document.getElementById('fnum').innerText.includes('.'))
         document.getElementById('fnum').innerText = document.getElementById('fnum').innerText.concat('.');
-        decimalPoint = true;
-        newNum = false;
 }
 
 function relocateToHome(){
