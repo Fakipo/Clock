@@ -48,6 +48,7 @@ function loadStates(){
 
 
 function loadCities(){
+    document.getElementById("city").options.length = 0;
     let selectedState = document.getElementById('state').value;
     let selectedCountry = document.getElementById('country').value;
     console.log(selectedCountry);
