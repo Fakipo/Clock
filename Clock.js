@@ -218,15 +218,10 @@ function goCrazy(){
 				document.body.style.backgroundColor = `rgb(${rndInt1}, ${rndInt2}, ${rndInt3})`;
 			}
 		}, 200);
-
-		setTimeout(() => {
-			document.getElementById('clownId').style.display = "block";
-		}, 3000);
     }
     else {
         document.getElementById('button4').innerText = 'Go Crazy';
         if (x) clearInterval(x);
-		document.getElementById('clownId').style.display = "none";
     } 
 }
 

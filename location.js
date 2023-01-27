@@ -19,8 +19,13 @@ let loadCountries = function(){
 loadCountries();
 
 function loadStates(){
-   document.getElementById("state").options.length = 0;
-   document.getElementById("city").options.length = 0;
+   if(document.getElementById('country').value == ''){
+       document.getElementById("state").options.length = 0;
+       document.getElementById("city").options.length = 0;
+       return;
+    }
+    document.getElementById("city").options.length = 0;
+    document.getElementById("state").options.length = 0;
    let selectedCountry = document.getElementById('country').value;
    console.log(document.getElementById('country').value);
     fetch('https://countriesnow.space/api/v0.1/countries/states', {
