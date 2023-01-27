@@ -3,7 +3,7 @@
 function getWeatherDetails(){
     let qplace = document.getElementById('city').value;
     alert(qplace);
-    fetch('http://api.weatherapi.com/v1/current.json?' 
+    fetch('https://api.weatherapi.com/v1/current.json?' 
     + new URLSearchParams({
         "key": '11e912ca6cb84cafacb172239232501',
         "q" : qplace
