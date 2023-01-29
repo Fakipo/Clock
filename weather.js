@@ -22,6 +22,8 @@ function getWeatherDetails(){
             document.getElementById(`max${index}`).innerText = element['day']['maxtemp_c'];
             document.getElementById(`min${index}`).innerText = element['day']['mintemp_c'];
             document.getElementById(`img${index}`).src = element['day']['condition']['icon'];
+            document.getElementById(`sunrise${index}`).innerText = element['astro']['sunrise'];
+            document.getElementById(`sunset${index}`).innerText = element['astro']['sunset'];
             if(index >= 2){
                 document.getElementById(`date${index}`).innerText = element['date'];
             }
