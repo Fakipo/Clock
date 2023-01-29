@@ -1,7 +1,6 @@
 function getWeatherDetails(){
     let qplace = document.getElementById('city').value;
     const days = 7;
-    alert(qplace);
     fetch('https://api.weatherapi.com/v1/forecast.json?' 
     + new URLSearchParams({
         "key": '11e912ca6cb84cafacb172239232501',
@@ -11,7 +10,6 @@ function getWeatherDetails(){
     .then(response => {
         return response.json();
     }).then(text=>{
-        console.log(text);
         document.getElementById('current').innerText = text['current']['temp_c'];
         document.getElementById('windSpeed').innerText = text['current']['wind_kph'];
         document.getElementById('humidity').innerText = text['current']['humidity'];
@@ -30,6 +28,7 @@ function getWeatherDetails(){
         });
     });
 
+    document.getElementById('weatherBlock').style.display = 'inline';
 
 
 
