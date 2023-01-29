@@ -26,9 +26,9 @@ function getWeatherDetails(){
                 document.getElementById(`date${index}`).innerText = element['date'];
             }
         });
+        document.getElementById('weatherBlock').style.display = 'inline';
     });
 
-    document.getElementById('weatherBlock').style.display = 'inline';
 
 
 
